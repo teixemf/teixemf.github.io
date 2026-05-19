@@ -1,0 +1,114 @@
+/* Reset básico e definições globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at center, #070a13 0%, #020617 100%);
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 200vh; 
+    overflow-x: hidden;
+}
+
+/* Contentor da Imagem de Marca (Fixa no fundo) */
+.brand-image-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 85vw;       /* Usa a largura do ecrã como base */
+    max-width: 600px;  /* Evita que fique gigante em monitores enormes */
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.25;
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+.brand-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.05));
+}
+
+/* Secção da Introdução */
+.intro-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.text-container {
+    text-align: center;
+    will-change: opacity, transform;
+    padding: 0 20px;
+}
+
+.brand-text {
+    font-size: 5rem; /* Tamanho padrão para PC */
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Secção de Conteúdo subsequente */
+.content-section {
+    position: relative;
+    min-height: 100vh;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10vh;
+    background: linear-gradient(to bottom, transparent, rgba(2, 6, 23, 0.95) 15%);
+}
+
+.content-wrapper {
+    max-width: 600px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.content-wrapper h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #94a3b8;
+}
+
+.content-wrapper p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   ADAPTAÇÃO PARA MOBILE (Ecrãs com largura até 768px - Smartphones e Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .brand-text {
+        font-size: 3rem; /* Reduz o tamanho do texto MTex para não quebrar a linha */
+        letter-spacing: 0.15em;
+    }
+
+    .brand-image-container {
+        width: 90vw; /* Alarga um pouco a imagem para ocupar melhor o ecrã do telemóvel */
+        transform: translate(-50%, -35%); /* Ajuste inicial ligeiramente diferente */
+    }
+
+    .content-wrapper h2 {
+        font-size: 1.6rem; /* Títulos ligeiramente mais pequenos */
+    }
+
+    .content-wrapper p {
+        font-size: 1rem; /* Texto de leitura mais confortável para mobile */
+    }
+}
